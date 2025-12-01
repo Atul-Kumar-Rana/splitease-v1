@@ -1,0 +1,19 @@
+package com.example.splitwise.repo;
+
+
+import com.example.splitwise.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Optional;
+
+public interface UserRepo extends JpaRepository<User, Long> {
+
+    Optional<User> findByEmail(String email);
+
+    User findUserByEmail(String email);
+
+    boolean existsByUsername(String username);
+}
+
