@@ -5,7 +5,6 @@ import com.example.splitwise.service.JwtService;
 import com.example.splitwise.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -82,7 +81,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration conf = new CorsConfiguration();
-        conf.setAllowedOrigins(List.of(frontendOrigin));        // allow your frontend origin
+        conf.setAllowedOrigins(List.of(
+                "https://spliteaseapp.atul.codes",   // your frontend domain
+                "http://localhost:5173",             // local dev
+                "https://localhost:5173"
+        ));        // allow your frontend origin
         conf.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         conf.setAllowedHeaders(List.of("Authorization","Content-Type","Accept","X-Requested-With"));
         conf.setExposedHeaders(List.of("Authorization","Content-Type")); // headers that frontend can read
