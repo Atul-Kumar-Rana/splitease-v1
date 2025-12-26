@@ -53,6 +53,6 @@ jobs:
               -e MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} \
               -e MAIL_FROM=help.splitease@gmail.com \
               -e MAIL_FROM_NAME=SplitEase \
-              -e BACKEND_URL=https://splitease.atul.codes \
-              -e FRONTEND_URL=https://spliteaseapp.atul.codes \
+              -e BACKEND_URL=${{ secrets.BACKEND_HOST_DOMAIN }} \
+              -e FRONTEND_URL=${{ secrets.FRONTEND_HOST_DOMAIN }} \
               atulranadev/splitease:latest
